@@ -1,27 +1,58 @@
 # step2-BE-kakao-shop
 카카오 테크 캠퍼스 2단계 카카오 쇼핑하기 백엔드 클론 프로젝트 레포지토리입니다.
 
-# 1주차
+## 목차
+
+- [1주차](#week1)
+  - [과제](#task1)
+    - [기능 추가](#add-function)
+    - [API 매핑](#api-scenario)
+    - [ER-Diagram](#er-diagram)
+    - [테이블 설계](#table-design)
+  
+- [2주차](#week2)
+  - [과제](#task2)
+    - [REST API 설계](#rest-api)
+    - [요청-응답 확인](#response)
+
+- [3주차](#week3)
+  - [과제](#task3)
+    - [CartJPARepositoryTest](#cartjparepositorytest)
+    - [OrderJPARepositoryTest](#orderjparepositorytest)
+
+- [4주차](#week4)
+  - [과제](#task4)
+    - [UserRestControllerTest](#userrestcontrollertest)
+    - [CartRestControllerTest](#cartrestcontrollertest)
+    - [OrderRestControllerTest](#orderrestcontrollertest)
+
+- [5주차](#week5)
+  - [과제](#task5)
+    - [CartService](#cartservice)
+    - [OrderService](#orderservice)
+
+- [6주차](#week6)
+
+# Week1
 
 카카오 테크 캠퍼스 2단계 - BE - 1주차 클론 과제
-</br>
-</br>
+
+<br>
 
 ## **과제명**
-```
+```text
 1. 요구사항분석/API요청 및 응답 시나리오 분석
 2. 요구사항 추가 반영 및 테이블 설계도
 ```
 
 ## **과제 설명**
-```
+```text
 1. 요구사항 시나리오를 보고 부족해 보이는 기능을 하나 이상 체크하여 README에 내용을 작성하시오.
 2. 제시된 화면설계를 보고 해당 화면설계와 배포된 기존 서버의 API주소를 매칭하여 README에 내용을 작성하시오. (카카오 화면설계 시나리오가 있음)
 3. 배포된 서버에 모든 API를 POSTMAN으로 요청해본 뒤 응답되는 데이터를 확인하고 부족한 데이터가 무엇인지 체크하여 README에 내용을 작성하시오.
 4. 테이블 설계를 하여 README에 ER-Diagram을 추가하여 제출하시오.
 ```
-
-</br>
+<br>
 
 ## **과제 상세 : 수강생들이 과제를 진행할 때, 유념해야할 것**
 아래 항목은 반드시 포함하여 과제 수행해주세요!
@@ -31,25 +62,27 @@
 >- 테이블 설계가 모든 API를 만족할 수 있게 나왔는가? (테이블이 효율적으로 나왔는가 보다는 해당 테이블로 요구사항을 만족할 수 있는지에 대한 여부만)
 >- 테이블명이 이해하기 쉽게 만들어졌는가? (상품테이블이 product이면 이해하기 쉽지만, material이라고 하면 이해하기 어렵기 때문)
 
-</br>
+<br>
 
 ## **코드리뷰 관련: PR시, 아래 내용을 포함하여 코멘트 남겨주세요.**
 **1. PR 제목과 내용을 아래와 같이 작성 해주세요.**
 
 >- PR 제목 : 부산대BE_라이언_1주차 과제
 
-</br>
+<br>
 
 **2. PR 내용 :**
 
 >- 코드 작성하면서 어려웠던 점
 >- 코드 리뷰 시, 멘토님이 중점적으로 리뷰해줬으면 하는 부분
 
+<br>
 
+## Task1
 
-# 과제
+---
 
-### 기능 추가
+### Add function
 
 - **회원 가입 파트**
    1. 회원 가입 시 사용자 유형 구분
@@ -65,15 +98,13 @@
 
 
 - **개별 상품 파트**
-   1. 개별 상품 상세 조회 페이지에서 바로 주문하기 기능 추가
-   2. 리뷰
-   3. 찜하기
-   4. 문의하기
+  1. 리뷰
+  2. 찜하기
+  3. 문의하기
 
 
 - **장바구니 파트**
-   1. 장바구니 내 상품 취소 기능 추가
-   2. 해당 상품 다른 옵션 선택 기능 추가
+  1. 해당 상품 다른 옵션 선택 기능 추가
 
 
 - **주문 정보 파트**
@@ -88,11 +119,15 @@
   4. 마이 페이지
      1. 회원 상세 정보 추가 → 회원 가입 시 상세 정보를 기입하는 회원 가입과 필수 정보만 기입하는 간편 가입 구분
 
-### 화면 설계 및 API 주소 매핑
+<br>
+
+---
+
+### API Scenario
 
 **회원 가입**
 
-<img src="week1_image/join.png" width="400" height="200">
+<img src="week1/week1_image/join.png" width="400" height="200" alt="회원 가입">
 
 - 로그인 페이지 내 회원 가입 버튼 클릭 시
     - Local URL : localhost:8080/join
@@ -119,7 +154,7 @@
 
 **로그인**
 
-<img src="week1_image/login.png" width="400" height="200">
+<img src="week1/week1_image/login.png" width="400" height="200" alt="로그인">
 
 - 메인 페이지 내 로그인 버튼 클릭 시
     - Local URL : localhost:8080/login
@@ -145,7 +180,7 @@
 
 **전체 상품 목록 조회**
 
-<img src="week1_image/products.png" width="400" height="400">
+<img src="week1/week1_image/products.png" width="400" height="400" alt="전체 상품 목록 조회">
 
 - 로그인 후 메인 페이지
     - Local URL : localhost:8080/products
@@ -228,7 +263,7 @@
 
 **개별 상품 목록 조회**
 
-<img src="week1_image/product.png" width="400" height="200">
+<img src="week1/week1_image/product.png" width="400" height="200" alt="개별상품 조회">
 
 - 전체 상품 목록 조회에서 특정 상품 클릭 시
     - Local URL : localhost:3000/products/{productId}
@@ -271,7 +306,7 @@
 
 **장바구니 담기**
 
-<img src="week1_image/option.png" width="400" height="400">
+<img src="week1/week1_image/option.png" width="400" height="400" alt="장바구니 담기">
 
 - 개별 상품 상세 조회 페이지 내 옵션 선택 후 하단의 장바구니 버튼 클릭 시
     - Local URL : localhost:8080/carts/add
@@ -303,7 +338,7 @@
 
 **장바구니 조회**
 
-<img src="week1_image/cart.png" width="400" height="200">
+<img src="week1/week1_image/cart.png" width="400" height="200" alt="장바구니 조회">
 
 - 네비게이션 바 오른쪽 상단의 장바구니 버튼 클릭 시
     - Local URL : localhost:8080/carts
@@ -352,7 +387,7 @@
 
 **주문하기**
 
-<img src="week1_image/order.png" width="400" height="400">
+<img src="week1/week1_image/order.png" width="400" height="400" alt="주문하기">
 
 - 장바구니 페이지 내 주문하기 버튼 클릭 시
     - Local URL : localhost:8080/carts/update
@@ -398,7 +433,7 @@
 
 **주문 결과 확인**
 
-<img src="week1_image/result.png" width="400" height="400">
+<img src="week1/week1_image/result.png" width="400" height="400" alt="주문 결과 확인">
 
 - 주문 페이지 내 결제하기 버튼 클릭 시
     - Local URL : localhost:8080/orders/{order_id}
@@ -437,28 +472,110 @@
 ```
 <br>
 
-##### 부족한 데이터
+#### Incomplete Data
 - **개별 물품 상세 조회 관련**
-  1. 배송 관련 API
-  2. 바로 구매하기 API
+  1. 별점 관련 데이터
+  2. 재고 관련 데이터
+  3. 배송 관련 API
+  4. 바로 구매하기 API
 
 
 - **장바구니 관련**
   1. 상품을 구매한 소비자의 ID
-  2. 장바구니 담기 취소 API
-  3. 선택 구매하기 API
+  2. 장바구니 동일 상품 추가 API
+  3. 장바구니 담기 취소 API
+  4. 선택 구매하기 API
 
+<br>
+
+---
 
 ### ER-Diagram
 
-<img src="week1_image/erd.png" width="400" height="400">
+<img src="week1/week1_image/erd.png" width="400" height="400" alt="ER-Diagram"></img>
 
+#### Table Design
 
-# 2주차
+```mysql
+CREATE TABLE `user_tb` (
+                           `id` INT AUTO_INCREMENT PRIMARY KEY,
+                           `userName` VARCHAR(15) NOT NULL,
+                           `nickname` VARCHAR(15) NOT NULL UNIQUE,
+                           `email` VARCHAR(30) NOT NULL UNIQUE,
+                           `password` VARCHAR(20) NOT NULL,
+                           CONSTRAINT `chk_password_length` CHECK (LENGTH(`password`) >= 8 AND LENGTH(`password`) <= 20)
+);
+
+CREATE TABLE `product_tb` (
+                              `id` INT AUTO_INCREMENT PRIMARY KEY,
+                              `productName` VARCHAR(100) NOT NULL,
+                              `description` VARCHAR(255) DEFAULT ' ',
+                              `image` VARCHAR(100) NOT NULL,
+                              `price` INT NOT NULL,
+                              `starCount` INT DEFAULT 0,
+                              `optionId` INT NOT NULL,
+                              CHECK (`price` >= 0)
+);
+
+CREATE TABLE `option_tb` (
+                             `id` INT AUTO_INCREMENT PRIMARY KEY,
+                             `productId` INT NOT NULL,
+                             `optionName` VARCHAR(100) NOT NULL,
+                             `price` INT NOT NULL,
+                             CHECK (`price` >= 0)
+);
+
+CREATE TABLE `cart_tb` (
+                           `id` INT AUTO_INCREMENT PRIMARY KEY,
+                           `userId` INT NOT NULL,
+                           `optionId` INT NOT NULL,
+                           `quantity` INT NOT NULL,
+                           `price` INT NOT NULL,
+                           UNIQUE (userId, optionId),
+                           CHECK (`quantity` >= 1),
+		                   CHECK (`price` >= 0)
+);
+
+CREATE TABLE `order_tb` (
+                            `id` INT AUTO_INCREMENT PRIMARY KEY,
+                            `userId` INT NOT NULL,
+                            `price` INT NOT NULL,
+                            CHECK (`price` >= 0)
+);
+
+CREATE TABLE `order_item_tb` (
+                                 `id` INT AUTO_INCREMENT PRIMARY KEY,
+                                 `orderId` INT NOT NULL,
+                                 `optionId` INT NOT NULL,
+                                 `quantity` INT NOT NULL,
+                                 `price` INT NOT NULL,
+                                 CHECK (`quantity` >= 1),
+                                 CHECK (`price` >= 0)
+);
+
+ALTER TABLE `product_tb` ADD CONSTRAINT `product_option_id` FOREIGN KEY (`optionId`) REFERENCES `option_tb`(`id`);
+ALTER TABLE `option_tb` ADD CONSTRAINT `option_product_id` FOREIGN KEY (`productId`) REFERENCES `product_tb` (`id`);
+ALTER TABLE `cart_tb` ADD CONSTRAINT `cart_user_id` FOREIGN KEY (`userId`) REFERENCES `user_tb` (`id`);
+ALTER TABLE `cart_tb` ADD CONSTRAINT `cart_option_id` FOREIGN KEY (`optionId`) REFERENCES `option_tb` (`id`);
+ALTER TABLE `order_tb` ADD CONSTRAINT `order_user_id` FOREIGN KEY (`userId`) REFERENCES `user_tb` (`id`);
+ALTER TABLE `order_item_tb` ADD CONSTRAINT `oi_order_id` FOREIGN KEY (`orderId`) REFERENCES `order_tb` (`id`);
+ALTER TABLE `order_item_tb` ADD CONSTRAINT `oi_option_id` FOREIGN KEY (`optionId`) REFERENCES `option_tb` (`id`);
+
+CREATE INDEX `idx_option_product_id` ON `option_tb` (`productId`);
+CREATE INDEX `idx_cart_user_id` ON `cart_tb` (`userId`);
+CREATE INDEX `idx_cart_option_id` ON `cart_tb` (`optionId`);
+CREATE INDEX `idx_order_user_id` ON `order_tb` (`userId`);
+CREATE INDEX `idx_oi_order_id` ON `order_item_tb` (`orderId`);
+CREATE INDEX `idx_oi_option_id` ON `order_item_tb` (`optionId`);
+```
+
+---
+
+# Week2
 
 카카오 테크 캠퍼스 2단계 - BE - 2주차 클론 과제
-</br>
-</br>
+
+<br>
 
 ## **과제명**
 ```
@@ -472,7 +589,7 @@
 2. 가짜 데이터를 설계하여 응답하는 스프링부트 컨트롤러를 작성하고 소스코드를 업로드하시오.
 ```
 
-</br>
+<br>
 
 ## **과제 상세 : 수강생들이 과제를 진행할 때, 유념해야할 것**
 아래 항목은 반드시 포함하여 과제 수행해주세요!
@@ -485,18 +602,102 @@
 
 >- PR 제목 : 부산대BE_라이언_2주차 과제
 
-</br>
+<br>
 
 **2. PR 내용 :**
 
 >- 코드 작성하면서 어려웠던 점
 >- 코드 리뷰 시, 멘토님이 중점적으로 리뷰해줬으면 하는 부분
 
-# 3주차
+<br>
+
+## Task2
+
+---
+
+### REST API
+
+<br>
+
+- 전체 상품 목록 조회
+
+  *GET /products*
+
+
+- 개별 상품 상세 조회
+
+  *GET /products/{productId}*
+
+
+- 이메일 중복 체크
+
+  *POST /check -> POST /check/email*
+
+
+- 회원가입
+
+  *POST /join -> POST /users*
+
+
+- 로그인
+
+  *POST /login*
+
+
+- 장바구니 담기
+
+  *POST /carts/add -> POST /carts*
+
+
+- 장바구니 조회
+
+  *GET /carts*
+
+
+- 장바구니 수정
+
+  *POST /carts/update -> PUT /carts*
+
+
+- 주문하기
+
+  *POST /orders/save -> POST /orders*
+
+
+- 주문 확인
+
+  *GET /orders/{orderId}*
+
+### Response
+
+**/carts/add**
+
+<img src="week2/week2_image/carts_add.png" width="400" height="300" alt="carts_add">
+
+**/carts/update**
+
+<img src="week2\week2_image\carts_update1.png" width="400" height="200" alt="carts_update1">
+
+<img src="week2/week2_image/carts_update2.png" width="400" height="400" alt="carts_update2">
+
+**/orders/save**
+
+<img src="week2/week2_image/orders_Save.png" width="400" height="400" alt="orders_save">
+
+**/orders/2**
+
+<img src="week2/week2_image/orders_2.png" width="400" height="400" alt="orders_2">
+
+**/orders/3**
+
+<img src="week2/week2_image/orders_3.png" width="400" height="200" alt="orders_3">
+
+
+# Week3
 
 카카오 테크 캠퍼스 2단계 - BE - 3주차 클론 과제
-</br>
-</br>
+
+<br>
 
 ## **과제명**
 ```
@@ -509,7 +710,7 @@
 2. 쿼리를 테스트하면서 가장 좋은 쿼리를 작성해보시오.
 ```
 
-</br>
+<br>
 
 ## **과제 상세 : 수강생들이 과제를 진행할 때, 유념해야할 것**
 아래 항목은 반드시 포함하여 과제 수행해주세요!
@@ -524,18 +725,72 @@
 
 >- PR 제목 : 부산대BE_라이언_3주차 과제
 
-</br>
+<br>
 
 **2. PR 내용 :**
 
 >- 코드 작성하면서 어려웠던 점
 >- 코드 리뷰 시, 멘토님이 중점적으로 리뷰해줬으면 하는 부분
 
-# 4주차
+<br>
+
+## Task3
+
+---
+
+### CartJPARepositoryTest
+
+- 장바구니 조회 테스트 (Lazy 로딩)
+  - join fetch 한 번 사용
+  
+    <img src="week3/week3_image/cart_find_test.png" width="300" height="300" alt="장바구니 조회1">
+
+  - inner join fetch 추가 사용
+
+    <img src="week3/week3_image/cart_find_test2.png" width="300" height="300" alt="장바구니 조회2">
+
+  - left outer join fetch 추가 사용
+
+    <img src="week3/week3_image/cart_find_test2.png" width="300" height="300" alt="장바구니 조회3">
+
+- 장바구니 변경 테스트
+
+  <img src="week3/week3_image/cart_update_test.png" width="400" height="200" alt="장바구니 조회3">
+
+- 장바구니 삭제 테스트
+  
+  <img src="week3/week3_image/cart_delete_all_test.png"  width="100" height="50" alt="장바구니 삭제">
+
+- 장바구니 단일 삭제 테스트
+  
+  <img src="week3/week3_image/cart_delete_one_test.png" width="300" height="300" alt="장바구니 단일 삭제">
+
+
+### OrderJPARepositoryTest
+
+- 주문 상세 조회 테스트 (Lazy 로딩)
+  - join fetch 한 번 사용
+
+    <img src="week3/week3_image/order_item_find_test.png" width="300" height="300" alt="주문 상세 조회 1">
+
+  - inner join fetch 추가 사용
+
+    <img src="week3/week3_image/order_item_find_test2.png" width="300" height="300" alt="주문 상세 조회 2">
+
+  - left outer join fetch 추가 사용
+
+    <img src="week3/week3_image/order_item_find_test2.png" width="300" height="300" alt="주문 상세 조회 3">
+
+- 주문 조회 테스트
+
+  <img src="week3/week3_image/order_find_test.png" width="300" height="200" alt="주문 조회">
+
+
+# Week4
 
 카카오 테크 캠퍼스 2단계 - BE - 4주차 클론 과제
-</br>
-</br>
+
+<br>
 
 ## **과제명**
 ```
@@ -548,7 +803,7 @@
 2. stub을 구현하시오.
 ```
 
-</br>
+<br>
 
 ## **과제 상세 : 수강생들이 과제를 진행할 때, 유념해야할 것**
 아래 항목은 반드시 포함하여 과제 수행해주세요!
@@ -563,18 +818,62 @@
 
 >- PR 제목 : 부산대BE_라이언_4주차 과제 
 
-</br>
+<br>
 
 **2. PR 내용 :**
 
 >- 코드 작성하면서 어려웠던 점
 >- 코드 리뷰 시, 멘토님이 중점적으로 리뷰해줬으면 하는 부분
 
-# 5주차
+
+## Task4
+
+---
+
+### UserRestControllerTest
+
+- 회원가입 테스트
+  - 성공
+  - 실패
+    - 이메일 형식
+    - 비밀번호 형식
+    - 비밀번호 길이
+
+- 로그인 테스트
+  - 성공
+  - 실패
+    - 이메일 형식
+
+- 비밀번호 변경 테스트
+- 이메일 중복체크 테스트
+  - 성공
+  - 실패
+
+- 로그아웃 테스트
+
+### CartRestControllerTest
+
+- 장바구니 담기 테스트
+  - 성공
+  - 실패
+    - 너무 적은 수량
+
+- 장바구니 업데이트 테스트
+- 장바구니 조회 테스트
+- 
+### OrderRestControllerTest
+
+- 결재 테스트
+- 주문 내역 조회 테스트
+  - 성공
+  - 실패
+
+
+# Week5
 
 카카오 테크 캠퍼스 2단계 - BE - 5주차 클론 과제
-</br>
-</br>
+
+<br>
 
 ## **과제명**
 ```
@@ -587,7 +886,7 @@
 2. 어떤 문제가 발생할 수 있을지 모든 시나리오를 생각해본 뒤, 실패에 대한 모든 테스트를 구현하시오.
 ```
 
-</br>
+<br>
 
 ## **과제 상세 : 수강생들이 과제를 진행할 때, 유념해야할 것**
 아래 항목은 반드시 포함하여 과제 수행해주세요!
@@ -600,18 +899,50 @@
 
 >- PR 제목 : 부산대BE_라이언_5주차 과제
 
-</br>
+<br>
 
 **2. PR 내용 :**
 
 >- 코드 작성하면서 어려웠던 점
 >- 코드 리뷰 시, 멘토님이 중점적으로 리뷰해줬으면 하는 부분
 
-# 6주차
+
+## Task5
+
+---
+
+### CartService
+
+- addCartList
+  - 동일한 옵션 예외 처리
+  - 이미 장바구니에 있는 상품 추가 시 수량 업데이트
+  - 유저 장바구니 담기
+- findAll
+  - FindALLDTO -> pruductDTO 중복 제거
+  - FindAllDTO2 -> pruductDTO 중복 제거 X
+- update
+  - 빈 장바구니 예외 처리
+  - 동일한 장바구니 아이디 입력 예외 처리
+  - 유저 장바구니에 없는 cartId 입력 예외 처리
+  - update -> mFindAllByUserId -> Cart join fetch Option
+  - updateV2 -> findAllByUserId
+
+
+### OrderService
+
+- save
+  - save -> mDeleteByUserId -> Query delete. Modifying-false
+  - saveV2 -> deleteByUserId -> 기본 delete
+- findById
+  - findById -> item join fetch order join fetch option join fetch product
+  - findByIdV2 -> item join fetch order
+
+
+# Week6
 
 카카오 테크 캠퍼스 2단계 - BE - 6주차 클론 과제
-</br>
-</br>
+
+<br>
 
 ## **과제명**
 ```
@@ -627,7 +958,7 @@
 5. 배포한 뒤 서비스 장애가 일어날 수 있으니, 해당 장애에 대처할 수 있게 로그를 작성하시오. (로그는 DB에 넣어도 되고, 외부 라이브러리를 사용해도 되고, 파일로 남겨도 된다 - 단 장애 발생시 확인을 할 수 있어야 한다)
 ```
 
-</br>
+<br>
 
 ## **과제 상세 : 수강생들이 과제를 진행할 때, 유념해야할 것**
 아래 항목은 반드시 포함하여 과제 수행해주세요!
@@ -642,7 +973,7 @@
 
 >- PR 제목 : 부산대BE_라이언_6주차 과제
 
-</br>
+<br>
 
 **2. PR 내용 :**
 
